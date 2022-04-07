@@ -1,0 +1,16 @@
+
+.app {
+  background-color: #f3f2ef;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.app__body{
+  margin-top: 80px;
+  display: flex;
+  flex: 0.25;
+  border-radius: 10px;
+  text-align: center;
+  height: fit-content;
+}

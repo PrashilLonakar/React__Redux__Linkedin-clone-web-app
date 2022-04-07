@@ -1,0 +1,47 @@
+.post {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.post__header{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.post__info{
+    margin-left: 10px;
+}
+
+.post__info > p{
+    font-size: 12px;
+    color: gray;
+}
+
+.post__body {
+    overflow-wrap: anywhere;
+    justify-content: flex-start;
+    display: flex;
+}
+
+.post__info > h2 {
+    font-size: 15px;
+}
+
+.post__buttons{
+    display: flex;
+    justify-content: space-evenly;
+    color: gray;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.post__buttons:hover {
+background-color: whitesmoke;
+border-radius: 10px;
+}
+
+.post__buttons > h4 {
+margin-left: 5px;
+}
