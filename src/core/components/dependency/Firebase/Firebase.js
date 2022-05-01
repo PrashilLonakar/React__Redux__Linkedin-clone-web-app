@@ -1,7 +1,11 @@
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
+import firebase from 'firebase';
+// import 'firebase/compat/firestore';
+// import 'firebase/compat/auth';
 
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyCLvMlyNu41oB6oZBAvl7jqq51Oz8bXVsQ",
     authDomain: "linkedin-clone-prashe911.firebaseapp.com",
@@ -11,9 +15,11 @@ const firebaseConfig = {
     appId: "1:882025336256:web:433aff399241837e648c25"
   };
 
-  const firebaseApp = firebase.initializeApp(firebaseConfig);
+// Initialize Firebase
 
-  const db = firebaseApp.fireStore();
-  const auth = firebase.auth();
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+const db = firebaseApp.firestore();
+const auth = firebase.auth();
 
-  export {db , auth};
+
+export { db, auth };

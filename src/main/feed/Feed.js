@@ -10,9 +10,8 @@ import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import EventNoteIcon from '@mui/icons-material/EventNote';
 import CalendarViewDayIcon from '@mui/icons-material/CalendarViewDay';
 
-
-// import { db } from '../../core/components/dependency/Firebase/firebase';
-// import firebase from 'firebase/compat/app';
+import { db } from '../../core/components/dependency/Firebase/Firebase';
+import firebase from 'firebase';
 //import { auth } from '../../core/components/dependency/Firebase/Firebase';
 
 function Feed() {
@@ -21,26 +20,27 @@ function Feed() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    // db.collection("posts").onSnapshot((snapshot) => 
-    //     setPosts(
-    //         snapshot.docs.map((doc) => ({
-    //             id: doc.id,
-    //             data: doc.data(),
-    //         }))
-    //     )
-    // );
+    db.collection("posts").onSnapshot((snapshot) => (
+        setPosts(snapshot.docs.map((doc) => (
+            {
+                id: doc.id,
+                data: doc.data(),
+            }
+        )))
+    ));
 }, []);
 
-  const sendPost = e => {
+  const sendPost = (e) => { 
     e.preventDefault();
-    // setPosts([...posts,e])
-    // db.collection('posts').add({
-    //     name: 'Prashil Lonakar',
-    //     description : 'THis is Test',
-    //     messsage: input,
-    //     photoUrl: '',
-    //     timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    // });
+    db.collection('posts').add({
+        name: 'Prashil Lonakar',
+        description : 'This is Test',
+        message: input,
+        photoUrl: '',
+        timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+
+    setInput("");
   };
 
   return (
@@ -61,8 +61,14 @@ function Feed() {
             </div>            
         </div>
         {
-            posts.map((post) => (
-                <Post />
+            posts.map(({id ,data:{name,description,message,photoUrl}}) => ( 
+                <Post 
+                key={id}
+                name={name}
+                description={description}
+                message={message}
+                photoUrl={photoUrl}
+                />
             ))
         }
         <Post name="Prashil Lonakar" description="This is a test" message="woow works" />
