@@ -13,15 +13,15 @@ function Post({ name, description, message, photoUrl}) {
   return (
     <div className='post'>
         <div className="post__header">
-             <Avatar />
+              { photoUrl ? <img src={photoUrl} /> : <Avatar /> }
              <div className="post__info">
-               <h2>Prashil Lonakar</h2>
-               <p>Description</p>
+               <h2>{name}</h2>
+               <p>{description}</p>
              </div>
         </div>
         <div className="post__body">
-          <p>Messages</p>
-        </div>
+          <p>{message}</p>
+        </div> 
 
         <div className="post__buttons">
           <InputOption Icon={ThumbUpAltOutlinedIcon} title="Like" color="gray"/>
